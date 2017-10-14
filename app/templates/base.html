@@ -1,0 +1,13 @@
+<html>
+	<head>
+		{%if title%}
+		<title>{{title}} - FlaskBlog</title>
+		{%else%}
+		<title>FlaskBlog</title>
+		{%endif%}
+	</head>
+	<body>
+		<div>FlaskBlog: <a href="/">Home</a>&nbsp;<a href="/users">Users</a></div>
+		{% block content %}{%endblock%}
+	</body>
+</html>
