@@ -9,6 +9,15 @@
 	<body>
 		<div>FlaskBlog: <a href="/">Home</a>&nbsp;<a href="/users">Users</a></div>
 		<hr>
+		{% with messages = get_flash_messages() %}
+			{% if messages %}
+				<ul>
+					{% for message in messages %}
+						<li>{{ message }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
 		{% block content %}{% endblock %}
 	</body>
 </html>
