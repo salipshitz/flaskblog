@@ -1,5 +1,6 @@
-from flask import render_template
+from flask import render_template, flash, redirect
 from app import app
+from .forms import LoginForm
 
 users = [
     {'nickname': 'Mark Anthony',
@@ -48,9 +49,15 @@ def home():
                            link_text='Users',
                            posts=posts)
 @app.route("/users")
-def pg2():
+def users():
     return render_template('members.html',
                            title='Users',
                            index='/index',
                            users=users)
- 
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template('login.html',
+                           title='Sign in',
+                           form=form)
